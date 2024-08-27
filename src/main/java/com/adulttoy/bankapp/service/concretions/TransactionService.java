@@ -20,20 +20,5 @@ public class TransactionService implements ITransactionService {
 		this.repository = repository;
 	}
 
-	@Override
-	public Transaction createNewTransaction(Long userId, boolean isBuying, String currency, BigDecimal amount) {
-		Transaction transaction = new Transaction(userId, isBuying, currency, amount);
-		return repository.save(transaction);
-	}
-
-	@Override
-	public int getOperationCountFromLast24Hours(Long userId) {
-		return repository.getOperationCountFromLast24Hours(userId);
-	}
-
-	@Override
-	public List<Transaction> findAllByUserId(Long userId) {
-		return repository.findAllByUserId(userId);
-	}
 
 }

@@ -23,44 +23,12 @@ public class TransactionController {
 	@PostMapping("/create")
 	public CreateTransactionResponse createTransaction(@RequestBody CreateTransactionRequest request) {
 
-		if (request.getUsername() == null || request.getUsername().equals("")) {
-			throw new BadRequestException(Constants.MESSAGE_INVALIDUSERNAME);
-		} else if (request.getCurrency() == null || request.getCurrency().equals("")) {
-			throw new BadRequestException(Constants.MESSAGE_INVALIDCURRENCY);
-		} else if (request.getAmount() == null || request.getAmount().signum() == 0 || request.getAmount().signum() == -1) {
-			throw new BadRequestException(Constants.MESSAGE_INVALIDAMOUNT);
-		} else if (request.getCurrency().equals(Constants.MAIN_CURRENCY)) {
-			throw new BadRequestException(Constants.MESSAGE_EXCHANGESWITHMAINCURRENCY);
-		}
 
-		/*User user = userService.findByUserName(request.getUsername());
 
-		int last24HoursOperationCount = transactionService.getOperationCountFromLast24Hours(user.getId());
-		if (last24HoursOperationCount >= 10) {
-			throw new DailyOperationLimitReachedException();
-		}
-
-		wealthService.makeWealthExchange(user.getId(), request.getCurrency(), request.getAmount(), request.isBuying());
-		Transaction transaction = transactionService.createNewTransaction(user.getId(), request.isBuying(), request.getCurrency(), request.getAmount());
-*/
 		CreateTransactionResponse response = new CreateTransactionResponse();
-	//	response.setTransaction(transaction);
+
 		return response;
 	}
 
-	/*@PostMapping("/find/all")
-	public FindAllTransactionsByUserResponse findAll(@RequestBody FindAllTransactionsByUserRequest request) {
-
-		if (request.getUsername() == null || request.getUsername().equals("")) {
-			throw new BadRequestException(Constants.MESSAGE_INVALIDUSERNAME);
-		}
-
-	//	User user = userService.findByUserName(request.getUsername());
-	//	List<Transaction> transactionList = transactionService.findAllByUserId(user.getId());
-
-	//	FindAllTransactionsByUserResponse response = new FindAllTransactionsByUserResponse();
-	//	response.setTransactionList(transactionList);
-		return response;
-	}*/
 
 }
