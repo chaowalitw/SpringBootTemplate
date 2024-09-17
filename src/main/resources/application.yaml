@@ -1,0 +1,19 @@
+server:
+  #servlet:
+   # context-path: /chaow-api
+  tomcat:
+    threads:
+      max: 1000
+
+app:
+  xxx-service:
+    xxx-timeout: 60000
+
+logging:
+  level:
+    com:
+      adulttoy: TRACE
+    org:
+      springframework: ERROR
+    #pattern:
+      #console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} | %-5level | %X{CORRELATION_ID} | %c{1} | %msg%n"
